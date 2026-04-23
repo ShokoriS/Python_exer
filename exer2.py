@@ -14,7 +14,24 @@ def alternating_symbols(height):
     switch_symbols = ('a', 'b')
     # writing the each_line for code readability... 
     
-    shape = "\n".join("".join(f'{switch_symbols[j % 2]}' for j in range(i, height + i)) for i in range(height))
+    shape = "\n".join("".join(f'{switch_symbols[(i+j) % 2]}' for j in range(height)) for i in range(height))
     return shape
 
 print(alternating_symbols(9))
+
+
+
+def alternating_symbols2(height):
+    symbols = "ab"
+
+    print("\n".join(f"{symbols[0]}{symbols[1]}" * height if i % 2 else "symbols[0]symbols[1]" * height for i in range(height)))
+
+
+def alternating_symbols_custom(height, width, block_length, symbols=(' ', '#')):
+
+    shape = "\n".join("".join(f"{symbols[(i + j) % 2] * block_length}" for j in range(width)) for i in range(height))
+    return shape
+
+print(alternating_symbols_custom(5, 6, 3))
+
+
