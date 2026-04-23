@@ -19,19 +19,14 @@ def alternating_symbols(height):
 
 print(alternating_symbols(9))
 
+def each_line(height, width,line_width, symbols, i):
+    # we have to decide which symbol should we start with 
 
+    pattern = f"{(f"{symbols[1] * width}{symbols[0]*width}" if i % 2 else f"{symbols[0]*width}{symbols[1]*width}") * line_width}"
+    return "\n".join(pattern for _ in range(height))
 
-def alternating_symbols2(height):
-    symbols = "ab"
+def alternating_symbols_custom(height, width, block_height, block_width, symbols=('a', 'b')):
+    # here we are going to return the entire pattern 
 
-    print("\n".join(f"{symbols[0]}{symbols[1]}" * height if i % 2 else "symbols[0]symbols[1]" * height for i in range(height)))
-
-
-def alternating_symbols_custom(height, width, block_length, symbols=(' ', '#')):
-
-    shape = "\n".join("".join(f"{symbols[(i + j) % 2] * block_length}" for j in range(width)) for i in range(height))
-    return shape
-
-print(alternating_symbols_custom(5, 6, 3))
-
-
+    return "\n".join(each_line(block_height, block_width, width, symbols, i) for i in range(height))
+print(alternating_symbols_cus
