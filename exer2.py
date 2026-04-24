@@ -29,4 +29,4 @@ def alternating_symbols_custom(height, width, block_height, block_width, symbols
     # here we are going to return the entire pattern 
 
     return "\n".join(each_line(block_height, block_width, width, symbols, i) for i in range(height))
-print(alternating_symbols_cus
+print(alternating_symbols_custom(5, 10, 2, 3, ('#', ' ')))
